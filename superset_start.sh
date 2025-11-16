@@ -21,4 +21,4 @@ superset fab create-admin \
 superset init
 
 # Start Superset web server
-superset run -p 8088 --with-threads --reload --debugger
+exec superset run -p 8088 --with-threads --reload --debugger
