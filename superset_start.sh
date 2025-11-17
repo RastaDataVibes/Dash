@@ -16,8 +16,5 @@ superset fab create-admin \
     --email opiobethle@gmail.com \
     --password zagadat || echo "Admin already exists"
 
-# Initialize
-superset init
-
 # Start server WITHOUT reload and WITHOUT debugger
 exec superset run -p ${PORT:-8088} --with-threads --host 0.0.0.0
