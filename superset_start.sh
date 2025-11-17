@@ -14,7 +14,7 @@ superset fab create-admin \
     --firstname zaga \
     --lastname dat \
     --email opiobethle@gmail.com \
-    --password zagadat || echo "Admin already exists"
+    --password zagadat || true
 
 # Start server WITHOUT reload and WITHOUT debugger
 exec superset run -p ${PORT:-8088} --with-threads --host 0.0.0.0
