@@ -15,7 +15,7 @@ superset fab create-admin \
     --firstname zaga \
     --lastname dat \
     --email opiobethle@gmail.com \
-    --password zagadat
+    --password zagadat || echo "Admin user may already exist, skipping..."
 
 # Initialize Superset
 superset init
