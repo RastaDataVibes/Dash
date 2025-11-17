@@ -1,12 +1,14 @@
 #!/bin/bash
-# Exit immediately if a command fails
 set -e
 
-# Set environment variables
-export SUPERSET_SECRET_KEY=${SUPERSET_SECRET_KEY}
-export SQLALCHEMY_DATABASE_URI=${SQLALCHEMY_DATABASE_URI}
+echo "🔧 Cleaning up leftover SQLite metadata files..."
+rm -f /app/superset.db
+rm -f /app/instance/superset.db
+rm -f superset.db
 
-# Initialize the database
+echo "🔧 Using SQLALCHEMY_DATABASE_URI: $SQLALCHEMY_DATABASE_URI"
+
+# Initialize / upgrade metadata DB (Neon)
 superset db upgrade
 
 # Create admin user if not exists
@@ -15,11 +17,10 @@ superset fab create-admin \
     --firstname zaga \
     --lastname dat \
     --email opiobethle@gmail.com \
-    --password zagadat || echo "Admin user may already exist, skipping..."
+    --password zagadat || true
 
-# Initialize Superset
+# Initialize Superset (roles, permissions, etc.)
 superset init
 
-# Start Superset web server
-exec superset run -p ${PORT:-8088} --with-threads --reload --debugger --host 0.0.0.0
-
+echo "🚀 Starting Superset..."
+exec superset run -p ${PORT:-8088} --with-threads --host 0.0.0.0
