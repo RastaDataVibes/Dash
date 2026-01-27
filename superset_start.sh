@@ -8,9 +8,6 @@ export SQLALCHEMY_DATABASE_URI=${SQLALCHEMY_DATABASE_URI}
 # Upgrade database
 superset db upgrade
 
-#new to be removed later
-superset fab reset-permissions || true
-
 superset init
 
 # Start server WITHOUT reload and WITHOUT debugger
