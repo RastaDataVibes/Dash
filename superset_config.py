@@ -15,6 +15,7 @@ PERMANENT_SESSION_LIFETIME = timedelta(days=3650)  # 10 years
 # Optional: Disable SQLAlchemy event system warnings
 SQLALCHEMY_TRACK_MODIFICATIONS = False
 
+TALISMAN_ENABLED = False
 # ---- ENABLE EMBEDDING ----
 
 FEATURE_FLAGS = {
