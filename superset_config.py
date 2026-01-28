@@ -25,6 +25,11 @@ FEATURE_FLAGS = {
 
 GUEST_ROLE_NAME = "Gamma"
 
+GUEST_TOKEN_JWT_SECRET = os.environ.get("SUPERSET_SECRET_KEY")  # MUST be same as your Flask app uses!
+GUEST_TOKEN_JWT_ALGO = "HS256"  # The algorithm your jwt.encode uses
+GUEST_TOKEN_JWT_EXP_SECONDS = 3600  # 1 hour – matches your token exp
+PUBLIC_ROLE_LIKE_GAMMA = True
+
 ENABLE_CORS = True
 CORS_OPTIONS = {
     "supports_credentials": True,
