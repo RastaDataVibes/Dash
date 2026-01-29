@@ -23,6 +23,8 @@ FEATURE_FLAGS = {
     "GUEST_ROLE_ENABLED": True,
 }
 
+ENABLE_GUEST_TOKEN = True
+
 GUEST_ROLE_NAME = "Gamma"
 
 GUEST_TOKEN_JWT_SECRET = os.environ.get("GUEST_TOKEN_JWT_SECRET")  # MUST be same as your Flask app uses!
@@ -35,9 +37,10 @@ ENABLE_CORS = True
 CORS_OPTIONS = {
     "supports_credentials": True,
     "allow_headers": ["*"],
-    "resources": ["*"],
+    "resources": r"/*",
     "origins": [
-        "https://car-dealership-app-wxs8.onrender.com"
+        "https://car-dealership-app-wxs8.onrender.com",
+        "*"
     ],
 }
 
