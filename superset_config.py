@@ -7,7 +7,7 @@ SECRET_KEY = os.environ.get("SUPERSET_SECRET_KEY", "please-change-this-secret-ke
 SQLALCHEMY_DATABASE_URI = os.environ.get("SQLALCHEMY_DATABASE_URI", "sqlite:////app/superset_home/superset.db")
 
 # Make sessions permanent
-SESSION_PERMANENT = True
+SESSION_PERMANENT = False
 
 # Very long session lifetime (effectively "always logged in")
 PERMANENT_SESSION_LIFETIME = timedelta(days=3650)  # 10 years
